@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="laranja">#c1583f</color>
+    <color name="rosa">#dea79a</color>
+    <color name="vinho">#4e1825</color>
+    <color name="vinho_claro">#954947</color>
+    <color name="cinza">#b1bbbe</color>
+
 </resources>
