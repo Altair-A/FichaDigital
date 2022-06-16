@@ -12,6 +12,16 @@
     <color name="rosa_choque">#d6254d</color>
     <color name="rosa">#ff5475</color>
     <color name="amarelo_claro">#fdeba9</color>
+    <color name="preto">#050517</color>
+    <color name="laranja_claro">#FE5F55</color>
+    <color name="bege">#EFC88B</color>
+    <color name="bege_claro">#F4E3B2</color>
+    <color name="cinza">#D3D5D7</color>
+    <color name="avermelhado">#E63946</color>
+    <color name="gelo">#F1FAEE</color>
+    <color name="azul_claro">#A8DADC</color>
+    <color name="azul">#457B9D</color>
+    <color name="azul_escuro">#1D3557</color>
     
 
 </resources>

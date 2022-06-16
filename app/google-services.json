@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "912362390984",
+    "project_id": "fichadigital-48dd5",
+    "storage_bucket": "fichadigital-48dd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912362390984:android:428b55d26fd34572032cfd",
+        "android_client_info": {
+          "package_name": "com.example.fichadigital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912362390984-mgmc3njco5psb01ciei92u57ndni59ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4hzbQZmfONARpgIeIoV_mBwVGuecaj7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912362390984-mgmc3njco5psb01ciei92u57ndni59ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
