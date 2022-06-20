@@ -3,6 +3,7 @@ package com.example.fichadigital;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -58,6 +59,9 @@ public class FormCadastro extends AppCompatActivity {
                     snackbar.show();
                 }else{
                     CadastrarUsuario(v);
+                    Intent intent = new Intent(FormCadastro.this, FormLogin.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });

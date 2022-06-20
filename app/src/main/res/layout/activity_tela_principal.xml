@@ -43,7 +43,7 @@
         android:id="@+id/textNomeUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sdasdaas"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -69,7 +69,7 @@
         android:id="@+id/textEmailUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="email@gmail.com"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -80,6 +80,7 @@
         />
 
     <Button
+        android:id="@+id/btn_deslogar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Deslogar"
