@@ -20,7 +20,7 @@ import com.google.firebase.ktx.Firebase;
 public class TelaPrincipal extends AppCompatActivity {
 
     private TextView nomeUsuario, emailUsuario;
-    private Button btn_deslogar;
+    private Button btn_deslogar, btn_escolher_perfil;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String usuarioID;
 
@@ -38,6 +38,15 @@ public class TelaPrincipal extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(TelaPrincipal.this, FormLogin.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btn_escolher_perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TelaPrincipal.this, TelaConta.class);
                 startActivity(intent);
                 finish();
             }
@@ -67,5 +76,6 @@ public class TelaPrincipal extends AppCompatActivity {
         nomeUsuario = findViewById(R.id.textNomeUsuario);
         emailUsuario = findViewById(R.id.textEmailUsuario);
         btn_deslogar = findViewById(R.id.btn_deslogar);
+        btn_escolher_perfil = findViewById(R.id.btn_escolher_perfil);
     }
 }

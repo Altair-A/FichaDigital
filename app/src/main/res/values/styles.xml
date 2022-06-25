@@ -19,6 +19,13 @@
         <item name="android:layout_margin">23dp</item>
     </style>
 
+    <style name="ContainerComponentsGrande">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">695dp</item>
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:background">@drawable/container_perfil</item>
+    </style>
+
     <style name="Edit_Text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
