@@ -4,4 +4,18 @@
     <string name="text_cadastro">Crie uma conta clicando aqui</string>
     <string name="title_cadastro">Cadastre-se</string>
     <string name="text_edt_cadastro">Editar Perfil</string>
+    <string name="foto_personagem"></string>
+    <array name="escolhas">
+        <item>"---"</item>
+        <item>"Atributos"</item>
+        <item>"Equipamentos"</item>
+        <item>"Pericias"</item>
+        <item>"Poderes"</item>
+        <item>"Magias"</item>
+        <item>"Notas"</item>
+        <item>"Mudar personagem"</item>
+        <item>"Sair"</item>
+
+    </array>
+
 </resources>

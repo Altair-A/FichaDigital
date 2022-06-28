@@ -18,6 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class TelaConta extends AppCompatActivity {
 
+    private Button btn_criar_personagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,22 @@ public class TelaConta extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        IniciarComponents();
+
+        btn_criar_personagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(TelaConta.this, TelaPersonagem.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
+    private void IniciarComponents(){
+        btn_criar_personagem = findViewById(R.id.btn_criar_personagem);
+    }
 
 }

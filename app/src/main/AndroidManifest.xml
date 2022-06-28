@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.fichadigital">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +16,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FichaDigital"
         tools:targetApi="31">
+        <activity
+            android:name=".Notas"
+            android:exported="false" />
+        <activity
+            android:name=".Magias"
+            android:exported="false" />
+        <activity
+            android:name=".Poderes"
+            android:exported="false" />
+        <activity
+            android:name=".Pericias"
+            android:exported="false" />
+        <activity
+            android:name=".Atributos"
+            android:exported="false" />
+        <activity
+            android:name=".TelaPersonagem"
+            android:exported="false" />
         <activity
             android:name=".CriarPersonagem"
             android:exported="false" />
@@ -38,5 +59,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>

@@ -24,9 +24,12 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.ktx.Firebase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class FormCadastro extends AppCompatActivity {
 
@@ -77,6 +80,7 @@ public class FormCadastro extends AppCompatActivity {
                 if(task.isSuccessful()){
 
                     SalvarDadosUsuario();
+
 
 
                     Snackbar snackbar = Snackbar.make(v, mensagens[1], Snackbar.LENGTH_SHORT);
@@ -140,5 +144,7 @@ public class FormCadastro extends AppCompatActivity {
         btn_cadastrar = findViewById(R.id.btn_cadastrar);
 
     }
+
+
 
 }
