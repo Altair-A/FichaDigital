@@ -4,6 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Magias">
+
+    <View
+        android:id="@+id/containerPerfil"
+        style="@style/ContainerComponentsGrande"
+        android:layout_width="379dp"
+        android:layout_height="700dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerMagia"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title_Magia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="MAGIAS"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/containerComponents"
+        style="@style/ContainerComponents"
+        android:layout_width="352dp"
+        android:layout_height="389dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_Magia" />
+
+    <EditText
+        android:id="@+id/edit_magias"
+        android:layout_width="300dp"
+        android:layout_height="358dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="93dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@+id/containerPerfil"
+        app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_criar_magia"
+        style="@style/Button"
+        android:layout_marginTop="35dp"
+        android:text="Criar magia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerComponents" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_atualizar_magia"
+        style="@style/Button"
+        android:layout_marginTop="35dp"
+        android:text="Atualizar magia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_criar_magia" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

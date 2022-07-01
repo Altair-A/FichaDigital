@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -10,36 +16,110 @@
     <View
         android:id="@+id/containerPerfil"
         style="@style/ContainerComponentsGrande"
+        android:layout_width="384dp"
+        android:layout_height="811dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_selected_photo"
-        android:background="@drawable/bg_button_img_round"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="48dp"
-        android:text="Foto"
-        android:textColor="@color/white"
+    <TextView
+        android:id="@+id/title_crie_personagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Crie seu personagem"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toStartOf="@id/containerPerfil"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageFoto"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="48dp"
+    <View
+        android:id="@+id/containerComponents"
+        style="@style/ContainerComponents"
+        android:layout_width="347dp"
+        android:layout_height="560dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toStartOf="@id/containerPerfil"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_crie_personagem" />
+
+    <EditText
+        android:id="@+id/edit_nome"
+        style="@style/Edit_Text"
+        android:layout_marginTop="8dp"
+        android:hint="Nome"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintTop_toTopOf="@+id/containerComponents" />
+
+    <EditText
+        android:id="@+id/edit_classe"
+        style="@style/Edit_Text"
+        android:hint="Classe"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nome"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        />
+
+    <EditText
+        android:id="@+id/edit_raca"
+        style="@style/Edit_Text"
+        android:hint="Raça"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/edit_classe"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        />
+
+    <EditText
+        android:id="@+id/edit_tendencao"
+        style="@style/Edit_Text"
+        android:hint="Tendencia"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/edit_raca"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        />
+
+    <EditText
+        android:id="@+id/edit_origem"
+        style="@style/Edit_Text3"
+        android:layout_width="302dp"
+        android:layout_height="139dp"
+        android:layout_marginTop="20dp"
+        android:hint="Origem"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@+id/edit_divindade" />
+
+    <EditText
+        android:id="@+id/edit_divindade"
+        style="@style/Edit_Text"
+        android:hint="Divindade"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/edit_tendencao"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_criar"
+        style="@style/Button"
+        android:layout_marginTop="35dp"
+        android:text="CRIAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerComponents" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

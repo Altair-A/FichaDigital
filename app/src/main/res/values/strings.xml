@@ -5,17 +5,16 @@
     <string name="title_cadastro">Cadastre-se</string>
     <string name="text_edt_cadastro">Editar Perfil</string>
     <string name="foto_personagem"></string>
-    <array name="escolhas">
-        <item>"---"</item>
+    <string-array name="escolhas">
+        <item>"Opções"</item>
         <item>"Atributos"</item>
         <item>"Equipamentos"</item>
         <item>"Pericias"</item>
         <item>"Poderes"</item>
         <item>"Magias"</item>
         <item>"Notas"</item>
-        <item>"Mudar personagem"</item>
+        <item>"Personagem"</item>
         <item>"Sair"</item>
-
-    </array>
+    </string-array>
 
 </resources>

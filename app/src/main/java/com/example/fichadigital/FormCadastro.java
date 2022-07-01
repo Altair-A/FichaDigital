@@ -81,8 +81,6 @@ public class FormCadastro extends AppCompatActivity {
 
                     SalvarDadosUsuario();
 
-
-
                     Snackbar snackbar = Snackbar.make(v, mensagens[1], Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
