@@ -1,19 +1,13 @@
 package com.example.fichadigital;
 
-import static java.security.AccessController.getContext;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -38,6 +32,8 @@ public class TelaPersonagem extends AppCompatActivity {
     private TextView nomePers, classePers, racaPers, tendenciaPers, divindadePers, origemPers;
     private EditText edit_for, edit_des, edit_con, edit_int, edit_sab, edit_car;
     private TextView text_for, text_des, text_con, text_int, text_sab, text_car;
+    private EditText edit_number_nivel, edit_armadura_num, edit_escudo_num, edit_outro_num;
+    private TextView text_bonus_des, text_def_num;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String usuarioID;
 
@@ -60,7 +56,7 @@ public class TelaPersonagem extends AppCompatActivity {
 
                 switch (position){
                     case 1:
-                        Intent it1 = new Intent(TelaPersonagem.this, Atributos.class);
+                        Intent it1 = new Intent(TelaPersonagem.this, Musica.class);
                         startActivity(it1);
                         finish();
                         break;
@@ -156,6 +152,35 @@ public class TelaPersonagem extends AppCompatActivity {
             }
         });
 
+        edit_number_nivel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalculaNivel();
+            }
+        });
+
+        edit_armadura_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalculaArmor();
+            }
+        });
+
+        edit_escudo_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalculaShield();
+            }
+        });
+
+        edit_outro_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalcularOutro();
+            }
+        });
+
+        CalcularDef();
     }
 
     @Override
@@ -276,6 +301,54 @@ public class TelaPersonagem extends AppCompatActivity {
                 text_car.setText(documentSnapshot.getString("carismaBonus"));
             }
         });
+
+        DocumentReference documentReference16 = db.collection("Nivel").document(usuarioID);
+        documentReference16.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                edit_number_nivel.setText(documentSnapshot.getString("nivel"));
+            }
+        });
+
+        DocumentReference documentReference17 = db.collection("Armadura").document(usuarioID);
+        documentReference17.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                edit_armadura_num.setText(documentSnapshot.getString("armadura"));
+            }
+        });
+
+        DocumentReference documentReference18 = db.collection("Escudos").document(usuarioID);
+        documentReference18.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                edit_escudo_num.setText(documentSnapshot.getString("escudo"));
+            }
+        });
+
+        DocumentReference documentReference19 = db.collection("Outro").document(usuarioID);
+        documentReference19.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                edit_outro_num.setText(documentSnapshot.getString("outro"));
+            }
+        });
+
+        DocumentReference documentReference20 = db.collection("destrezasBonus").document(usuarioID);
+        documentReference20.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                text_bonus_des.setText(documentSnapshot.getString("destrezaBonus"));
+            }
+        });
+
+        DocumentReference documentReference21 = db.collection("Defesa").document(usuarioID);
+        documentReference21.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                text_def_num.setText(documentSnapshot.getString("defesa"));
+            }
+        });
     }
 
 
@@ -301,6 +374,13 @@ public class TelaPersonagem extends AppCompatActivity {
         text_sab = findViewById(R.id.edt_sab2);
         text_car = findViewById(R.id.edt_car2);
 
+        edit_number_nivel = findViewById(R.id.edit_Number_Nivel);
+        edit_armadura_num = findViewById(R.id.armadura_num);
+        edit_escudo_num = findViewById(R.id.escudo_num);
+        edit_outro_num = findViewById(R.id.outro_num);
+
+        text_bonus_des = findViewById(R.id.bonus_num);
+        text_def_num = findViewById(R.id.def_num);
     }
 
     private void CalculaAtributo(){
@@ -718,7 +798,134 @@ public class TelaPersonagem extends AppCompatActivity {
 
     }
 
+    private void CalculaNivel(){
 
+        Integer nivel = Integer.parseInt(edit_number_nivel.getText().toString());
+
+        if(nivel <= 0){
+            nivel = 1;
+        }else if(nivel > 20){
+            nivel = 20;
+        }
+
+
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        Map<String, Object> niveis = new HashMap<>();
+        niveis.put("nivel", nivel.toString());
+
+        DocumentReference documentReference = db.collection("Nivel").document(usuarioID);
+        documentReference.set(niveis).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("db","Sucesso ao atualizar os dados");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("db","Erro ao atualizar os dados" + e.toString());
+                    }
+                });
+
+    }
+
+    private void  CalculaArmor(){
+        String armadura = edit_armadura_num.getText().toString();
+
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        Map<String, Object> armaduras = new HashMap<>();
+        armaduras.put("armadura", armadura);
+
+        DocumentReference documentReference = db.collection("Armadura").document(usuarioID);
+        documentReference.set(armaduras).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("db","Sucesso ao atualizar os dados");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("db","Erro ao atualizar os dados" + e.toString());
+                    }
+                });
+    }
+    private void  CalculaShield(){
+        String escudo = edit_escudo_num.getText().toString();
+
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        Map<String, Object> escudos = new HashMap<>();
+        escudos.put("escudo", escudo);
+
+        DocumentReference documentReference = db.collection("Escudos").document(usuarioID);
+        documentReference.set(escudos).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("db","Sucesso ao atualizar os dados");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("db","Erro ao atualizar os dados" + e.toString());
+                    }
+                });
+    }
+
+    private void  CalcularOutro(){
+        String outro = edit_outro_num.getText().toString();
+
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        Map<String, Object> outros = new HashMap<>();
+        outros.put("outro", outro);
+
+        DocumentReference documentReference = db.collection("Outro").document(usuarioID);
+        documentReference.set(outros).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("db","Sucesso ao atualizar os dados");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("db","Erro ao atualizar os dados" + e.toString());
+                    }
+                });
+    }
+
+    private void CalcularDef(){
+
+        /*Integer def = (armadura + escudo + outros + bonusDes + 10);
+
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        DocumentReference documentReference2 = db.collection("Escudo").document(usuarioID);
+
+
+
+        Map<String, Object> defs = new HashMap<>();
+        defs.put("defesa", teste.getName());
+
+        DocumentReference documentReference = db.collection("Defesa").document(usuarioID);
+        documentReference.set(defs).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d("db","Sucesso ao atualizar os dados");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("db","Erro ao atualizar os dados" + e.toString());
+                    }
+                });*/
+
+    }
 
 }
 

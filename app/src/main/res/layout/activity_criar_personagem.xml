@@ -40,8 +40,8 @@
     <View
         android:id="@+id/containerComponents"
         style="@style/ContainerComponents"
-        android:layout_width="347dp"
-        android:layout_height="560dp"
+        android:layout_width="350dp"
+        android:layout_height="511dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,8 +91,6 @@
     <EditText
         android:id="@+id/edit_origem"
         style="@style/Edit_Text3"
-        android:layout_width="302dp"
-        android:layout_height="139dp"
         android:layout_marginTop="20dp"
         android:hint="Origem"
         android:inputType="text"

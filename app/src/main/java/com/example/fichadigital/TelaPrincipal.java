@@ -3,9 +3,12 @@ package com.example.fichadigital;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -58,6 +61,10 @@ public class TelaPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_principal);
 
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
+        }
+
         getSupportActionBar().hide();
 
         IniciarComponents();
@@ -90,6 +97,14 @@ public class TelaPrincipal extends AppCompatActivity {
 
                 //salvarImagem();
 
+            }
+        });
+
+        btn_foto_personagem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                tirarFoto();
+                return false;
             }
         });
     }
@@ -135,11 +150,20 @@ public class TelaPrincipal extends AppCompatActivity {
             try{
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mSelectedUri);
                 mImageFoto.setImageDrawable(new BitmapDrawable(bitmap));
-               // enviarFoto();
+                salvarImagem();
                 btn_foto_personagem.setAlpha(0);
             }catch (IOException e){
 
             }
+
+        }
+        if (requestCode == 1 && resultCode == RESULT_OK){
+
+            Bundle extras = data.getExtras();
+            Bitmap imagem = (Bitmap) extras.get("data");
+            mImageFoto.setImageBitmap(imagem);
+            //salvarImagem();
+            btn_foto_personagem.setVisibility(View.INVISIBLE);
 
         }
     }
@@ -150,36 +174,7 @@ public class TelaPrincipal extends AppCompatActivity {
         startActivityForResult(intent, 0);
     }
 
-   /* private void upload_imagem_1(){
-
-        StorageReference reference = storage.getReference().child("upload").child("imagens");
-
-        StorageReference nome_imagem = reference.child("ImagemPerfil"+System.currentTimeMillis()+".jpg");
-
-        BitmapDrawable drawable = (BitmapDrawable) mImageFoto.getDrawable();
-
-        Bitmap bitmap = drawable.getBitmap();
-
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-
-        UploadTask uploadTask = nome_imagem.putBytes(bytes.toByteArray());
-
-        uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-
-                if(task.isSuccessful()){
-                    Toast.makeText(getBaseContext(), "Sucesso ao realizar o upload", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getBaseContext(), "Erro ao realizar o upload", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }*/
-
-    /*private void salvarImagem(){
+    private void salvarImagem(){
         String filename = UUID.randomUUID().toString();
         final StorageReference ref = FirebaseStorage.getInstance().getReference("/images/" + filename);
 
@@ -201,7 +196,7 @@ public class TelaPrincipal extends AppCompatActivity {
                         Log.e("Teste", e.getMessage(), e);
                     }
                 });
-    }*/
+    }
 
    private void enviarFoto(){
        Bitmap bitmap = ((BitmapDrawable)mImageFoto.getDrawable()).getBitmap();
@@ -217,6 +212,11 @@ public class TelaPrincipal extends AppCompatActivity {
                Toast.makeText(getApplicationContext(), "Upload realizado com sucesso", Toast.LENGTH_SHORT).show();
            }
        });
+   }
+
+   private void tirarFoto(){
+       Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+       startActivityForResult(intent, 1);
    }
 }
 

@@ -19,9 +19,8 @@
         style="@style/ContainerComponentsGrande"
         android:layout_width="379dp"
         android:layout_height="1265dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -515,7 +514,7 @@
     <TextView
         android:id="@+id/armadura"
         android:layout_width="76dp"
-        android:layout_height="23dp"
+        android:layout_height="24dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="485dp"
         android:background="@drawable/edit_text_quadrado2"
@@ -525,11 +524,12 @@
 
     <EditText
         android:id="@+id/armadura_num"
-        android:layout_width="15dp"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="24dp"
         android:layout_marginTop="485dp"
         android:background="@drawable/edit_text_quadrado3"
-        android:text="5"
+        android:inputType="number"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/armadura"
         app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
 
@@ -540,35 +540,38 @@
         android:layout_marginTop="485dp"
         android:background="@drawable/edit_text_quadrado2"
         android:text="Escudo"
+
         app:layout_constraintStart_toEndOf="@+id/armadura_num"
         app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
 
     <EditText
         android:id="@+id/escudo_num"
-        android:layout_width="15dp"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="24dp"
         android:layout_marginTop="485dp"
         android:background="@drawable/edit_text_quadrado3"
-        android:text="1"
+        android:inputType="number"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/escudo"
         app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
 
     <TextView
         android:id="@+id/def"
         android:layout_width="40dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="584dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="574dp"
         android:background="@drawable/edit_text_quadrado2"
         android:text="DEF"
         app:layout_constraintStart_toEndOf="@+id/mais"
+        app:layout_constraintStart_toStartOf="@+id/igual"
         app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
 
-    <EditText
+    <TextView
         android:id="@+id/def_num"
         android:layout_width="43dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="122dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="112dp"
         android:background="@drawable/edit_text_quadrado2"
         android:text="26"
         app:layout_constraintStart_toEndOf="@+id/def"
@@ -576,7 +579,7 @@
 
     <TextView
         android:id="@+id/bonus"
-        android:layout_width="71dp"
+        android:layout_width="90dp"
         android:layout_height="44dp"
         android:layout_marginStart="21dp"
         android:layout_marginTop="574dp"
@@ -585,13 +588,15 @@
         app:layout_constraintStart_toStartOf="@+id/ContainerMeio2"
         app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
 
-    <EditText
+    <TextView
         android:id="@+id/bonus_num"
-        android:layout_width="30dp"
+        android:layout_width="35dp"
         android:layout_height="45dp"
         android:layout_marginTop="574dp"
         android:background="@drawable/edit_text_quadrado3"
-        android:text="5"
+        android:text=""
+        android:inputType="number"
+        android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/bonus"
         app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
 
@@ -607,10 +612,11 @@
 
     <EditText
         android:id="@+id/outro_num"
-        android:layout_width="15dp"
+        android:layout_width="30dp"
         android:layout_height="45dp"
         android:layout_marginTop="574dp"
-        android:text="5"
+        android:text=""
+        android:inputType="number"
         android:background="@drawable/edit_text_quadrado3"
         app:layout_constraintStart_toEndOf="@+id/outro"
         app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
@@ -619,7 +625,7 @@
         android:id="@+id/igual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="212dp"
+        android:layout_marginStart="240dp"
         android:layout_marginTop="576dp"
         android:background="@drawable/edit_text_quadrado3"
         android:text="="
@@ -630,7 +636,7 @@
     <EditText
         android:id="@+id/mais"
         android:layout_width="55dp"
-        android:layout_height="28dp"
+        android:layout_height="24dp"
         android:layout_marginTop="485dp"
         android:background="@drawable/edit_text_quadrado2"
         android:text="+10"
@@ -649,6 +655,501 @@
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/containerDisc"
         app:layout_constraintTop_toBottomOf="@+id/imageFoto" />
+
+    <View
+        android:id="@+id/ContainerFim"
+        style="@style/ContainerComponentsMeio1"
+        android:layout_width="379dp"
+        android:layout_height="279dp"
+        app:layout_constraintStart_toStartOf="@id/containerPerfil"
+        app:layout_constraintTop_toBottomOf="@id/ContainerMeio2" />
+
+    <TextView
+        android:id="@+id/textAtaque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="34dp"
+        android:text="Ataque"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim" />
+
+    <TextView
+        android:id="@+id/textDano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="37dp"
+        android:text="Dano"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textAtaque"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim" />
+
+    <EditText
+        android:id="@+id/edit_arma"
+        android:layout_width="60dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edit_text_quadrado"
+        android:hint="Arma"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim"
+        app:layout_constraintTop_toBottomOf="@+id/textAtaque" />
+
+    <EditText
+        android:id="@+id/edit_dano"
+        android:layout_width="60dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_quadrado"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/edit_arma"
+        app:layout_constraintTop_toBottomOf="@+id/textDano" />
+
+    <TextView
+        android:id="@+id/textmais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="79dp"
+        android:text="+"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/edit_dano"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim" />
+
+    <EditText
+        android:id="@+id/editTextNumber2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/edit_text_quadrado2"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/textmais"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim" />
+
+    <TextView
+        android:id="@+id/textmais2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="79dp"
+        android:text="+"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumber2"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim" />
+
+    <EditText
+        android:id="@+id/editTextNumber3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/edit_text_quadrado2"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/textmais2"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim" />
+
+    <TextView
+        android:id="@+id/textBonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="34dp"
+        android:text="Bonus"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim" />
+
+    <TextView
+        android:id="@+id/textTeste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="28dp"
+        android:text="Teste"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim"
+        app:layout_constraintTop_toBottomOf="@+id/edit_arma" />
+
+    <View
+        android:id="@+id/view"
+        style="@style/ContainerComponentsMeio2"
+        android:layout_width="298dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim"
+        app:layout_constraintTop_toBottomOf="@+id/textTeste" />
+
+    <TextView
+        android:id="@+id/Critico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="20dp"
+        android:text="Critico"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
+
+    <EditText
+        android:id="@+id/edit_num_critico"
+        android:layout_width="44dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="306dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_quadrado"
+        android:textColor="@color/white"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/Critico" />
+
+    <EditText
+        android:id="@+id/edit_teste_ataque"
+        android:layout_width="72dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="14dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <EditText
+        android:id="@+id/edit_pericia"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_quadrado3"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/edit_teste_ataque"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/mais2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/edit_pericia"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/text_bonus_pericia"
+        android:layout_width="56dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="22dp"
+        android:text="Bonus"
+        app:layout_constraintStart_toEndOf="@+id/mais2"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <EditText
+        android:id="@+id/edit_bonus_pericia"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_quadrado2"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/text_bonus_pericia"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/text_igual2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="20dp"
+        android:text="="
+        app:layout_constraintStart_toEndOf="@+id/edit_bonus_pericia"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <EditText
+        android:id="@+id/editTextNumber7"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="number"
+        android:background="@drawable/edit_text_quadrado3"
+        app:layout_constraintStart_toEndOf="@+id/text_igual2"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <View
+        android:id="@+id/ContainerFim2"
+        style="@style/ContainerComponentsMeio1"
+        android:layout_width="379dp"
+        android:layout_height="279dp"
+        app:layout_constraintStart_toStartOf="@id/containerPerfil"
+        app:layout_constraintTop_toBottomOf="@id/ContainerFim" />
+
+    <TextView
+        android:id="@+id/textAtaque2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="34dp"
+        android:text="Ataque"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim2"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim2" />
+
+    <TextView
+        android:id="@+id/textDano2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="37dp"
+        android:text="Dano"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textAtaque2"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim2" />
+
+    <EditText
+        android:id="@+id/edit_arma2"
+        android:layout_width="60dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edit_text_quadrado"
+        android:hint="Arma"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim2"
+        app:layout_constraintTop_toBottomOf="@+id/textAtaque2" />
+
+    <EditText
+        android:id="@+id/edit_dano2"
+        android:layout_width="60dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:background="@drawable/edit_text_quadrado"
+        android:textColorHint="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/edit_arma2"
+        app:layout_constraintTop_toBottomOf="@+id/textDano2" />
+
+    <TextView
+        android:id="@+id/textmais4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="79dp"
+        android:text="+"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/edit_dano2"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim2" />
+
+    <EditText
+        android:id="@+id/editTextNumber8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/edit_text_quadrado2"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/textmais4"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim2" />
+
+    <TextView
+        android:id="@+id/textmais3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="79dp"
+        android:text="+"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumber2"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim2" />
+
+    <EditText
+        android:id="@+id/editTextNumber10"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/edit_text_quadrado2"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/textmais4"
+        app:layout_constraintStart_toStartOf="@+id/textmais3"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim2" />
+
+    <TextView
+        android:id="@+id/textBonus2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="34dp"
+        android:text="Bonus"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim2"
+        app:layout_constraintTop_toTopOf="@+id/ContainerFim2" />
+
+    <TextView
+        android:id="@+id/textTeste2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="28dp"
+        android:text="Teste"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim2"
+        app:layout_constraintTop_toBottomOf="@+id/edit_arma2" />
+
+    <View
+        android:id="@+id/view2"
+        style="@style/ContainerComponentsMeio2"
+        android:layout_width="298dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim2"
+        app:layout_constraintTop_toBottomOf="@+id/textTeste2" />
+
+    <TextView
+        android:id="@+id/Critico2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="20dp"
+        android:text="Critico"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ContainerFim2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber10" />
+
+    <EditText
+        android:id="@+id/edit_num_critico2"
+        android:layout_width="44dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="306dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_quadrado"
+        android:textColor="@color/white"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/Critico2" />
+
+    <EditText
+        android:id="@+id/edit_teste_ataque2"
+        android:layout_width="72dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="14dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <EditText
+        android:id="@+id/edit_pericia2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_quadrado3"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/edit_teste_ataque2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/mais3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/edit_pericia2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/text_bonus_pericia2"
+        android:layout_width="56dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="22dp"
+        android:text="Bonus"
+        app:layout_constraintStart_toEndOf="@+id/mais3"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <EditText
+        android:id="@+id/edit_bonus_pericia2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edit_text_quadrado2"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/text_bonus_pericia2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/text_igual3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="20dp"
+        android:text="="
+        app:layout_constraintStart_toEndOf="@+id/edit_bonus_pericia2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <EditText
+        android:id="@+id/editTextNumber11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="number"
+        android:background="@drawable/edit_text_quadrado"
+        app:layout_constraintStart_toEndOf="@+id/text_igual3"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

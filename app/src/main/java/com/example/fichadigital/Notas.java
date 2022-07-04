@@ -71,7 +71,7 @@ public class Notas extends AppCompatActivity {
 
                 switch (position){
                     case 1:
-                        Intent it1 = new Intent(Notas.this, Atributos.class);
+                        Intent it1 = new Intent(Notas.this, Musica.class);
                         startActivity(it1);
                         finish();
                         break;

@@ -71,6 +71,11 @@ public class Poderes extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 switch (position){
+                    case 1:
+                        Intent it1 = new Intent(Poderes.this, Musica.class);
+                        startActivity(it1);
+                        finish();
+                        break;
                     case 2:
                         Intent it2 = new Intent(Poderes.this, Equipamentos.class);
                         startActivity(it2);

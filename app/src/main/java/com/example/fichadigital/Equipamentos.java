@@ -74,7 +74,7 @@ public class Equipamentos extends AppCompatActivity {
 
                 switch (position){
                     case 1:
-                        Intent it1 = new Intent(Equipamentos.this, Atributos.class);
+                        Intent it1 = new Intent(Equipamentos.this, Musica.class);
                         startActivity(it1);
                         finish();
                         break;

@@ -71,6 +71,12 @@ public class Magias extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 switch (position){
+                    case 1:
+                        Intent it1 = new Intent(Magias.this, Musica.class);
+                        startActivity(it1);
+                        finish();
+                        break;
+
                     case 2:
                         Intent it2 = new Intent(Magias.this, Equipamentos.class);
                         startActivity(it2);
